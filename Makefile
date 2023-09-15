@@ -19,12 +19,10 @@ html: __summary
 
 pdf: __summary
 	@echo "--- Generate the pdf ---"
-	@pandoc docs/*.md -V geometry:a4paper \
-		--metadata title=${OUTPUT} \
-		-H Header.tex \
-		-V geometry:margin=1cm \
-		-V documentclass:article \
-		-t html \
+	@pandoc docs/*.md --metadata title=${OUTPUT} \
+		--css header.css \
+		--pdf-engine=wkhtmltopdf \
+		-f gfm -t pdf \
 		-o ${OUTPUT}.pdf
 
 __summary:
