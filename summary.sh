@@ -17,7 +17,7 @@ do
         count=$(echo ${topic} | cut -d '-' -f 1 | wc -m)
         offset=$(repeat ${count})
         topic=$(echo ${topic} | cut -d '-' -f 2-)
-        echo -e "${offset}- [${topic}](#${topic,,})" >> $1
+        echo -e "${offset}+ [${topic}](#${topic,,})" >> $1
     done
 done
 
