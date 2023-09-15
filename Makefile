@@ -6,12 +6,16 @@ OUTPUT="Documentation"
 markdown: __summary
 	@echo "--- Generate the markdown ---"
 	@pandoc docs/*.md -o ${OUTPUT}.md \
+		--toc \
 		--metadata title=${OUTPUT} 
 
 html: __summary
 	@echo "--- Generate the html ---"
 	@pandoc docs/*.md -o ${OUTPUT}.html \
-		--metadata title=${OUTPUT} 
+		-s \
+		-f gfm -t html \
+		--metadata title=${OUTPUT} \
+		--css header.css 
 
 pdf: __summary
 	@echo "--- Generate the pdf ---"
