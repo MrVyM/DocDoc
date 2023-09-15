@@ -1,21 +1,26 @@
 #!/bin/bash 
 
 FIRST_FILE=00_Sommaire.md
-OUTPUT=Wiki
+OUTPUT="Documentation"
 
 markdown: __summary
 	@echo "--- Generate the markdown ---"
-	@pandoc *.md -o ${OUTPUT}.md
+	@pandoc docs/*.md -o ${OUTPUT}.md \
+		--metadata title=${OUTPUT} 
 
 html: __summary
 	@echo "--- Generate the html ---"
-	@pandoc *.md -o ${OUTPUT}.html
+	@pandoc docs/*.md -o ${OUTPUT}.html \
+		--metadata title=${OUTPUT} 
 
 pdf: __summary
 	@echo "--- Generate the pdf ---"
-	@pandoc *.md -V geometry:a4paper \
+	@pandoc docs/*.md -V geometry:a4paper \
+		--metadata title=${OUTPUT} \
+		-H Header.tex \
 		-V geometry:margin=1cm \
 		-V documentclass:article \
+		-t html \
 		-o ${OUTPUT}.pdf
 
 __summary:
@@ -26,7 +31,7 @@ all: html pdf markdown
 
 .PHONY: clean
 clean:
-	$(RM) ${FIRST_FILE}
+	$(RM) docs/${FIRST_FILE}
 	$(RM) ${OUTPUT}.pdf
 	$(RM) ${OUTPUT}.md
 	$(RM) ${OUTPUT}.html
