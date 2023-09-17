@@ -1,7 +1,7 @@
 #!/bin/bash 
 
-FIRST_FILE=00_Sommaire.md
-OUTPUT="Documentation"
+SUMMARY_FILE=01_Sommaire.md
+OUTPUT="Readme"
 
 markdown: __summary
 	@echo "--- Generate the markdown ---"
@@ -27,13 +27,13 @@ pdf: __summary
 
 __summary:
 	@echo "--- Generate the summary ---"
-	@./summary.sh ${FIRST_FILE} ${OUTPUT}
+	@./summary.sh ${SUMMARY_FILE} ${OUTPUT}
 
 all: html pdf markdown
 
 .PHONY: clean
 clean:
-	$(RM) docs/${FIRST_FILE}
+	$(RM) docs/${SUMMARY_FILE}
 	$(RM) ${OUTPUT}.pdf
 	$(RM) ${OUTPUT}.md
 	$(RM) ${OUTPUT}.html
