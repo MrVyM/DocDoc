@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Readme</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="header.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Readme</h1>
+</header>
+<h1 id="docdoc">DocDoc</h1>
+<p>The goal of this project was to create a script who build a wiki. we
+start with a list of file in Markdown and we would like to generate a
+document in Markdown, HTML and PDF.</p>
+<h2 id="sommaire">Sommaire</h2>
+<ul>
+<li><a href="#docdoc">DocDoc</a>
+<ul>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#how-to-use">How-to-use</a>
+<ul>
+<li><a href="#graphics">Graphics</a></li>
+<li><a href="#makefile">Makefile</a></li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="requirements">Requirements</h3>
+<blockquote>
+<p><a href="https://pandoc.org/">Pandoc</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://doc.ubuntu-fr.org/latex">Latex</a></p>
+</blockquote>
+<h3 id="how-to-use">How to use</h3>
+<p>Generate for all type (HTML, Markdown and PDF).</p>
+<pre><code>make all</code></pre>
+<p>Generate for a specific type.</p>
+<pre><code>make pdf
+
+make html
+
+make markdown   </code></pre>
+<p>By default a simple make will generate the document in Markdown.</p>
+<h4 id="graphics">Graphics</h4>
+<p>You can choose your own graphics with the CSS file <a
+href="header.css">Header.css</a></p>
+<p>I made a simple file for me but feel free to create your own
+style.</p>
+<h4 id="makefile">Makefile</h4>
+<p>You can edit the makefile, you will find two variables in it.</p>
+<pre><code>SUMMARY_FILE=01_Summary.md
+OUTPUT=&quot;Readme&quot;</code></pre>
+<p>For the variable OUTPUT do not specify a type because the programme
+could generate differents types.</p>
+</body>
+</html>
