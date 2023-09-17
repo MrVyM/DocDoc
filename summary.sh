@@ -2,7 +2,7 @@
 
 repeat()
 {
-    for i in $(seq 3 $1); do echo -n '\t'; done
+    for i in $(seq 4 $1); do echo -n '\t'; done
 }
 
 cd docs/
@@ -17,7 +17,7 @@ do
         count=$(echo ${topic} | cut -d '-' -f 1 | wc -m)
         offset=$(repeat ${count})
         topic=$(echo ${topic} | cut -d '-' -f 2-)
-        echo -e "${offset}+ [${topic}](#${topic,,})" >> $1
+        echo -e "${offset}- [${topic}](#${topic,,})" >> $1
     done
 done
 
