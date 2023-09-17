@@ -22,7 +22,7 @@ pdf: __summary
 	@pandoc docs/*.md --metadata title=${OUTPUT} \
 		--css header.css \
 		--pdf-engine=wkhtmltopdf \
-		-f gfm -t pdf \
+		-f gfm -t html5 \
 		-o ${OUTPUT}.pdf
 
 __summary:
